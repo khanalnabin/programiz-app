@@ -22,9 +22,9 @@
 			return false;
 		}
 	}
-	function clearSpecific(sel){
-		selected.splice(selected.indexOf(sel), 1)
-		selected = selected
+	function clearSpecific(sel) {
+		selected.splice(selected.indexOf(sel), 1);
+		selected = selected;
 	}
 	function clearSelected() {
 		selected = [];
@@ -48,7 +48,11 @@
 						{#each selected as sel}
 							<div class=" mx-2 p-2">
 								<span class="inline-block tl-text">{sel}</span>
-								<button class="tl-button" on:click={()=>clearSpecific(sel)}>&nbspX&nbsp</button>
+								<button
+									class="tl-button"
+									on:click={() => clearSpecific(sel)}
+									>&nbspX&nbsp</button
+								>
 							</div>
 						{/each}
 					</div>
@@ -90,12 +94,12 @@
 						</div>
 						<div class="tags">
 							{#each job.keywords as tag}
-								<button on:click={() => selecttag(tag)}
-									><span
-										class={selected.includes(tag)
-											? "tag selected"
-											: "tag "}>{tag}</span
-									></button
+								<button
+									class={selected.includes(tag)
+										? "tag selected"
+										: "tag "}
+									on:click={() => selecttag(tag)}
+									>{tag}</button
 								>
 							{/each}
 						</div>
@@ -120,11 +124,12 @@
 		background: rgb(238, 251, 251);
 		border-radius: 15%;
 	}
-	.tags .selected {
+	.tags :hover {
 		background: rgb(95, 164, 162);
 		color: white;
+		transition: 0.4s;
 	}
-	.tags .tag :hover {
+	.tags .selected {
 		background: rgb(95, 164, 162);
 		color: white;
 	}
